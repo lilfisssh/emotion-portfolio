@@ -36,13 +36,8 @@ GitHub Pages serves a static build — no Node backend:
 Sensors: **MAX30102** (heart rate / HRV, I2C 0x57) + **Grove GSR** (skin
 conductance, analog A0) on an Arduino Uno. Firmware, parts list, wiring and
 debugging notes live in [`hardware/`](hardware/README.md)
-(中文版本: [`hardware/README_cn_ver.md`](hardware/README_cn_ver.md)).
 
 ## Deployment
 
 Every push to `main` is built and published to Pages by GitHub Actions
 (`.github/workflows/deploy.yml`).
-
----
-
-中文说明见 [README_cn_ver.md](README_cn_ver.md)。
