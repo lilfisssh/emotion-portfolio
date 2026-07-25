@@ -96,7 +96,7 @@ export default function ControlBar({
             className={btnBase}
             style={activeSource === "mock" ? activeBtn : idleBtn}
           >
-            模拟演示
+            Mock demo
           </button>
           <button
             disabled={busy || activeSource === "serial"}
@@ -104,7 +104,7 @@ export default function ControlBar({
             className={btnBase}
             style={activeSource === "serial" ? activeBtn : idleBtn}
           >
-            连接 Arduino
+            Connect Arduino
           </button>
           {onUseWs && (
             <button
@@ -112,9 +112,9 @@ export default function ControlBar({
               onClick={onUseWs}
               className={btnBase}
               style={activeSource === "ws" ? activeBtn : idleBtn}
-              title="本地开发模式：连接 localhost:8100 后端"
+              title="Dev mode: connect to the local backend at localhost:8100"
             >
-              本地后端 (WS)
+              Local backend (WS)
             </button>
           )}
         </div>
