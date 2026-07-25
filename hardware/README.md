@@ -7,7 +7,7 @@ Full firmware: [`sensor_hrv_v8/sensor_hrv_v8.ino`](sensor_hrv_v8/sensor_hrv_v8.i
 
 - Heart rate (BPM) and HRV (RMSSD) from a MAX30102 PPG module
 - Skin conductance (GSR) from a Grove GSR module
-- Principle in one line: stress → sympathetic activation → faster, more regular
+- Principle: stress → sympathetic activation → faster, more regular
   heartbeat + sweaty palms; relaxed → parasympathetic → slower but more
   variable heartbeat. The two signals cross-validate each other.
 
@@ -78,7 +78,7 @@ the two sensors on different hands.
 RMSSD rises; breath-hold 15 s or serial-subtract-7 → BPM and GSR climb; finger
 off → BPM zero within a second.
 
-## Debugging field notes (all traps actually hit)
+## Debugging field notes
 
 | Symptom | Root cause | Fix |
 |---|---|---|
@@ -89,9 +89,6 @@ off → BPM zero within a second.
 | Values don't reset when finger removed | no "no-finger" branch | add `!fingerOn` reset logic |
 | Always 0 after re-placing finger | watchdog mistook "no new sample" for bus lockup and kept rebooting the sensor | watchdog now probes I2C address ACK instead |
 | Blank serial after upload | IDE2 monitor zombie / occupied by plotter | close monitor fully, press RESET |
-
-**Discipline:** back up working code before editing; change one thing at a time;
-record error messages verbatim.
 
 ## Limits
 
