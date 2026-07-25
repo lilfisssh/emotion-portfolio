@@ -115,7 +115,7 @@ interface BrowserSerial {
 }
 
 export const SERIAL_UNSUPPORTED_MSG =
-  "当前浏览器不支持 Web Serial，无法直连 Arduino。请使用 Chrome / Edge，并通过 HTTPS 或 localhost 访问；或改用「模拟演示」。";
+  "This browser does not support Web Serial, so it cannot connect to an Arduino directly. Please use Chrome / Edge over HTTPS or localhost — or switch to Mock demo.";
 
 export function isWebSerialSupported(): boolean {
   return !!(navigator as Navigator & { serial?: BrowserSerial }).serial;
@@ -144,7 +144,7 @@ export class WebSerialSource extends MappedSource {
     this.cb.onLive(true);
 
     const reader = port.readable?.getReader();
-    if (!reader) throw new Error("串口可读流不可用");
+    if (!reader) throw new Error("Serial readable stream unavailable");
     this.reader = reader;
 
     const dec = new TextDecoder();
